@@ -20,6 +20,8 @@ export VSCODE_QUALITY="stable"
 export VSCODE_SKIP_NODE_VERSION_CHECK="yes"
 export SHOULD_BUILD_REH="no"
 export SHOULD_BUILD_REH_WEB="no"
+export SHOULD_BUILD_MSI="no"
+export SHOULD_BUILD_MSI_NOUP="no"
 
 while getopts ":ilops" opt; do
   case "$opt" in
