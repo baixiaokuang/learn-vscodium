@@ -18,6 +18,8 @@ export SKIP_SOURCE="no"
 export VSCODE_LATEST="no"
 export VSCODE_QUALITY="stable"
 export VSCODE_SKIP_NODE_VERSION_CHECK="yes"
+export SHOULD_BUILD_REH="no"
+export SHOULD_BUILD_REH_WEB="no"
 
 while getopts ":ilops" opt; do
   case "$opt" in
