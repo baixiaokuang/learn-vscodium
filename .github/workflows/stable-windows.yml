@@ -12,8 +12,8 @@ on:
       checkout_pr:
         type: string
         description: Checkout PR
-  # repository_dispatch:
-  #   types: [stable]
+  repository_dispatch:
+    types: [stable]
   # push:
   #   branches: [ master ]
   #   paths-ignore:

@@ -22,6 +22,8 @@ else
   LATEST_VERSION=$( echo "${GITHUB_RESPONSE}" | jq -c -r '.tag_name' )
   RECHECK_ASSETS="${SHOULD_BUILD}"
 
+  NOT_FOUND=$( echo "${GITHUB_RESPONSE}" | jq -c -r '.status' )
+
   if [[ "${LATEST_VERSION}" =~ ^([0-9]+\.[0-9]+\.[0-5]) ]]; then
     if [[ "${MS_TAG}" != "${BASH_REMATCH[1]}" ]]; then
       echo "New VSCode version, new build"
@@ -54,6 +56,9 @@ else
     else
       ASSETS="null"
     fi
+  elif [[ "${NOT_FOUND}" = "404" ]]; then
+    echo "First VSCode version, new build"
+    export SHOULD_BUILD="yes"
   else
     echo "can't check assets"
     exit 1
