@@ -127,3 +127,25 @@ npm run gulp minify-vscode
 - On Windows, build inno-updater, then build zip, exe and msi.
 - Package Remote Extension Host.
 - Package vscode-cli, aka vscode-tunnel.
+
+## GitHub Workflow
+
+`stable-windows`
+
+### Jobs: check
+
+- Prepare vscodium and vscode source code.
+- Get tag and commit, generate release version.
+- Check whether to build and deploy, according to release version and assets in current release.
+
+### Jobs: compile
+
+- Build on Linux, and upload artifact.
+
+### Jobs: build
+
+- Download artifact generated in compile job.
+- Package by `./build/windows/package.sh`, generate unpacked core, cli, reh, reh-web.
+- Generate assets: inno-updater, portable zip, user setup exe, system setup exe, msi, and msi(auto-update disabled).
+- Generate checksums for assets.
+- Create a new release or update current release, upload assets.
