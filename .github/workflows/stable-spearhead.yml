@@ -12,8 +12,8 @@ on:
       dont_update:
         type: boolean
         description: Don't update VSCode
-  schedule:
-    - cron: '0 18 * * *'
+  # schedule:
+  #   - cron: '0 18 * * *'
 
 jobs:
   build:
@@ -37,7 +37,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v6
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ".nvmrc"
 
       - name: Clone VSCode repo
         run: . get_repo.sh
@@ -46,7 +46,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEW_RELEASE: ${{ github.event.inputs.new_release }}
-          IS_SPEARHEAD: 'yes'
+          IS_SPEARHEAD: "yes"
         run: . check_tags.sh
 
       - name: Build

@@ -12,17 +12,17 @@ on:
       checkout_pr:
         type: string
         description: Checkout PR
-  repository_dispatch:
-    types: [stable]
-  push:
-    branches: [ master ]
-    paths-ignore:
-    - '**/*.md'
-    - 'upstream/*.json'
-  pull_request:
-    branches: [ master ]
-    paths-ignore:
-    - '**/*.md'
+  # repository_dispatch:
+  #   types: [stable]
+  # push:
+  #   branches: [ master ]
+  #   paths-ignore:
+  #   - '**/*.md'
+  #   - 'upstream/*.json'
+  # pull_request:
+  #   branches: [ master ]
+  #   paths-ignore:
+  #   - '**/*.md'
 
 env:
   APP_NAME: VSCodium
@@ -61,12 +61,12 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v6
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ".nvmrc"
 
       - name: Setup Python 3
         uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
+          python-version: "3.11"
         if: env.VSCODE_ARCH == 'x64'
 
       - name: Clone VSCode repo
