@@ -69,7 +69,7 @@ cd vscode || { echo "'vscode' dir not found"; exit 1; }
 git init -q
 # git remote add origin https://github.com/Microsoft/vscode.git
 # git remote add origin git@gitlab.unboundwill.com:playground/vscode.git
-git remote add origin git@github.com:baixiaokuang/learn-vscode.git
+git remote add origin https://github.com/baixiaokuang/learn-vscode.git
 
 # figure out latest tag by calling MS update API
 if [[ -z "${MS_TAG}" ]]; then
